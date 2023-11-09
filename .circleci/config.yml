@@ -8,14 +8,14 @@ jobs:
       - checkout
       # look for existing cache and restore if found
       - restore_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
+          key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
       # install dependencies
       - run:
           name: install dependencies
-          command: npm ci
+          command: pnpm ci
       # save any changes to the cache
       - save_cache:
-          key: v1-deps-{{ checksum "package-lock.json" }}
+          key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules
       - run:

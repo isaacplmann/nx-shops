@@ -9,7 +9,6 @@ jobs:
       # look for existing cache and restore if found
       - restore_cache:
           key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
-      # install dependencies
       - run:
           name: install dependencies
           command: pnpm install --frozen-lockfile

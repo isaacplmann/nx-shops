@@ -18,7 +18,7 @@ jobs:
             - node_modules
       - nx/set-shas
 
-      - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD -t lint,test,build --parallel=3 --configuration=ci
+      - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD -t lint,test,build --parallel=3
       - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD -t e2e --parallel=1
 workflows:
   build:

@@ -5,9 +5,22 @@ jobs:
     docker:
       - image: cimg/node:lts-browsers
     steps:
+      - checkout
+      # look for existing cache and restore if found
+      - restore_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+      # install dependencies
       - run:
-          name: Print a message
-          command: echo "Hello Circle CI!"
+          name: install dependencies
+          command: npm ci
+      # save any changes to the cache
+      - save_cache:
+          key: v1-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run build
+          command: npx nx build cart
 
 workflows:
   version: 2

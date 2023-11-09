@@ -62,7 +62,10 @@
   },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "sharedGlobals": ["{workspaceRoot}/babel.config.json"],
+    "sharedGlobals": [
+      "{workspaceRoot}/babel.config.json",
+      "{workspaceRoot}/.circleci/config.yml"
+    ],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -72,5 +75,6 @@
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
   },
-  "parallel": 1
+  "parallel": 1,
+  "nxCloudAccessToken": "YTVkYWE2YTUtY2U2MS00NjYwLTkxM2YtYTQxNzBhN2YzMjUyfHJlYWQtd3JpdGU="
 }

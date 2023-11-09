@@ -12,7 +12,7 @@ jobs:
       # install dependencies
       - run:
           name: install dependencies
-          command: pnpm ci
+          command: pnpm install --frozen-lockfile
       # save any changes to the cache
       - save_cache:
           key: v1-deps-{{ checksum "pnpm-lock.yaml" }}
